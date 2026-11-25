@@ -1,29 +1,76 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Gestor de contraseñas</title>
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <main>
-    <ul></ul>
-  </main>
-  <script>
-    let drawData = (data) => {
-      data.forEach(category => {
-        let parent = document.getElementsByTagName('ul')[0]
-        let child = document.createElement('li')
-        // child.innerText = JSON.stringify(category)
-        child.innerText = category.name
-        parent.appendChild(child)
-      })
-    }
 
-    fetch("http://localhost:3000/categories")
-      .then(res => res.json())
-      .then(data => drawData(data))
-  </script>
+  <main class="app">
+
+    <header class="header">
+      <h1>Pass saver</h1>
+      <div class="window-buttons">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <nav class="toolbar">
+      <button type="button" class="active-button">
+        Add categorie
+      </button>
+      <button type="button" id="add-site-button">
+        Add site
+      </button>
+    </nav>
+
+    <div class="container">
+
+      <aside class="sidebar">
+        <h2>Categories</h2>
+
+        <div class="category-form-container">
+          <h3>Añadir categoría</h3>
+
+          <form id="category-form">
+            <input
+              type="text"
+              id="category-name"
+              placeholder="Nombre de la categoría"
+              required
+            >
+            <button type="submit">Añadir</button>
+          </form>
+        </div>
+
+        <ul id="category-list"></ul>
+      </aside>
+
+      <section class="content">
+        <h2 id="selected-category"></h2>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Sitio</th>
+              <th>User</th>
+              <th>Created at</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="sites-table"></tbody>
+        </table>
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="js/index.js"></script>
 </body>
 </html>
