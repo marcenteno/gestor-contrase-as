@@ -22,7 +22,7 @@ async function deleteOne(req, res) {
   let category = await models.Category.findByPk(req.params.id)
 
   if (!category)
-    res.sendStatus(404)
+    return res.sendStatus(404)
 
   await category.destroy()
   res.sendStatus(200)
