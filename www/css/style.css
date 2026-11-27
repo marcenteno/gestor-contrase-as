@@ -76,13 +76,17 @@ body {
     margin-left: -1px;
 }
 
-.site-form-container {
+/* Formularios */
+
+.site-form-container,
+.category-form-container {
     padding: 18px;
     background-color: #f7f9fb;
     border-bottom: 1px solid #ccc;
 }
 
-.site-form-container h3 {
+.site-form-container h3,
+.category-form-container h3 {
     margin: 0 0 12px;
     font-size: 16px;
 }
@@ -118,40 +122,6 @@ body {
     background-color: #0874d1;
 }
 
-.container {
-    display: flex;
-    gap: 25px;
-    padding: 22px 18px;
-    min-height: 560px;
-}
-
-.sidebar {
-    width: 275px;
-    flex-shrink: 0;
-    border: 1px solid #ccc;
-}
-
-.sidebar h2 {
-    margin: 0;
-    padding: 13px;
-    text-align: center;
-    font-size: 20px;
-    font-weight: normal;
-    color: #168cf0;
-    border-bottom: 1px solid #ccc;
-}
-
-.category-form-container {
-    padding: 14px;
-    background-color: #f7f9fb;
-    border-bottom: 1px solid #ccc;
-}
-
-.category-form-container h3 {
-    margin: 0 0 12px;
-    font-size: 16px;
-}
-
 #category-form {
     display: flex;
     flex-direction: column;
@@ -180,6 +150,33 @@ body {
 #category-form button:hover {
     background-color: #0874d1;
 }
+
+/* Distribución principal */
+
+.container {
+    display: flex;
+    gap: 25px;
+    padding: 22px 18px;
+    min-height: 560px;
+}
+
+.sidebar {
+    width: 275px;
+    flex-shrink: 0;
+    border: 1px solid #ccc;
+}
+
+.sidebar h2 {
+    margin: 0;
+    padding: 13px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: normal;
+    color: #168cf0;
+    border-bottom: 1px solid #ccc;
+}
+
+/* Categorías */
 
 #category-list {
     list-style: none;
@@ -230,6 +227,8 @@ body {
     background-color: #eeeeee;
 }
 
+/* Contenido y tabla de sitios */
+
 .content {
     flex: 1;
     min-width: 0;
@@ -239,6 +238,11 @@ body {
     margin: 0 0 14px;
     font-size: 22px;
     font-weight: normal;
+}
+
+.content .site-form-container {
+    margin-bottom: 22px;
+    border: 1px solid #ccc;
 }
 
 table {
@@ -303,6 +307,53 @@ td a:hover {
     background-color: #eeeeee;
 }
 
+/* Botones y enlaces */
+
+.toolbar a {
+    text-decoration: none;
+}
+
+.toolbar a button:hover {
+    background-color: #edf5fc;
+}
+
+/* Navegación de la página de sitios */
+
+.sites-toolbar {
+    height: 54px;
+    padding: 5px 17px;
+    justify-content: flex-start;
+    gap: 0;
+}
+
+.sites-toolbar .tab-button {
+    display: inline-block;
+    padding: 11px 19px;
+    border: 1px solid #aaa;
+    background-color: white;
+    color: #555;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.sites-toolbar .tab-button:first-child {
+    border-radius: 5px 0 0 5px;
+}
+
+.sites-toolbar .tab-button:last-child {
+    border-radius: 0 5px 5px 0;
+    margin-left: -1px;
+}
+
+.sites-toolbar .active-tab {
+    background-color: #168cf0;
+    color: white;
+    border-color: #168cf0;
+}
+
+/* Diseño adaptable */
+
 @media (max-width: 900px) {
     body {
         padding: 15px;
@@ -332,5 +383,23 @@ td a:hover {
 
     .sidebar {
         width: 100%;
+    }
+
+    #site-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    #site-form input {
+        width: 100%;
+    }
+
+    table {
+        font-size: 12px;
+    }
+
+    th,
+    td {
+        padding: 8px 4px;
     }
 }

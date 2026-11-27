@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestor de contraseñas - Sitios</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <main class="app">
+
+    <header class="header">
+      <h1>Pass saver</h1>
+      <div class="window-buttons">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+
+    <nav class="toolbar sites-toolbar">
+      <a href="index.html" class="tab-button">Add categorie</a>
+      <span class="tab-button active-tab">Add site</span>
+    </nav>
+
+    <div class="container">
+
+      <section class="content">
+
+        <h2 id="selected-category">Sitios de la categoría</h2>
+
+        <div class="category-form-container">
+          <h3>Añadir sitio</h3>
+
+          <form id="site-form">
+
+            <input
+              type="text"
+              id="site-name"
+              placeholder="Nombre del sitio"
+              required
+            >
+
+            <input
+              type="text"
+              id="site-user"
+              placeholder="Nombre de usuario"
+              required
+            >
+
+            <input
+              type="password"
+              id="site-password"
+              placeholder="Contraseña"
+              required
+            >
+
+            <button type="submit">Añadir sitio</button>
+
+          </form>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Sitio</th>
+              <th>User</th>
+              <th>Created at</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+
+          <tbody id="sites-table"></tbody>
+        </table>
+
+      </section>
+
+    </div>
+
+  </main>
+
+  <script src="js/sites.js"></script>
+</body>
+</html>
