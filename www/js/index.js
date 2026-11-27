@@ -5,6 +5,32 @@ let drawData = (data) => {
   data.forEach(category => {
     let child = document.createElement('li')
     child.innerText = category.name
+
+    let button = document.createElement('button')
+    button.innerText = 'Eliminar'
+
+    button.addEventListener('click', () => {
+      let confirmDelete = confirm('¿Seguro que quieres eliminar esta categoría? También se eliminarán sus sitios y contraseñas asociados.')
+
+      if (confirmDelete) {
+        fetch("http://localhost:3000/categories/" + category.id, {
+          method: "DELETE"
+        })
+          .then(res => {
+            if (!res.ok) {
+              throw new Error('No se ha podido eliminar la categoría')
+            }
+
+            loadCategories()
+            alert('Categoría eliminada correctamente')
+          })
+          .catch(error => {
+            alert(error.message)
+          })
+      }
+    })
+
+    child.appendChild(button)
     parent.appendChild(child)
   })
 }
