@@ -1,4 +1,3 @@
-
 let drawData = (data) => {
   let parent = document.getElementById('category-list')
   parent.innerHTML = ''
